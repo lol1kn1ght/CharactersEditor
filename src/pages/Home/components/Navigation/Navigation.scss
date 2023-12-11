@@ -1,0 +1,27 @@
+._navigation {
+  width: 100%;
+  padding: 10px;
+  background: #373535;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
+  .controls {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-around;
+
+    .control {
+      flex: 1 0;
+      text-align: center;
+      user-select: none;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background: rgba($color: #373535, $alpha: 0.3);
+      }
+    }
+  }
+}
