@@ -63,6 +63,9 @@ export interface ICharacter extends Parameters {
 
   /** @name Навыки персонажа */
   skills: Skills
+
+  /** @name Урон, полученный персонажем */
+  damage: number
 }
 
 export enum SkillLabel {
