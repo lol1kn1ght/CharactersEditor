@@ -14,46 +14,68 @@ export const CharacterCard = ({ character }: { character: ICharacter }) => {
     )
   }
 
+  //
+  const characteristics: { name: string; value: number }[][] = [
+    [
+      {
+        name: 'Ловкость',
+        value: character.agility,
+      },
+      {
+        name: 'Харизма',
+        value: character.charisma,
+      },
+      {
+        name: 'Уклонение',
+        value: character.dodging,
+      },
+      {
+        name: 'Энергичность',
+        value: character.energy,
+      },
+    ],
+    [
+      {
+        name: 'Интелект',
+        value: character.intelligence,
+      },
+      {
+        name: 'Жизненная сила',
+        value: character.lifeForce,
+      },
+      {
+        name: 'Сила',
+        value: character.power,
+      },
+    ],
+  ]
+
+  const Characteristics = () => {
+    return (
+      <>
+        {characteristics.map((characteristicsArray, index) => (
+          <div key={index}>
+            {characteristicsArray.map((characteristic) => (
+              <div className="characteristic" key={characteristic.name}>
+                <div className="characteristic-name">{characteristic.name}</div>
+                <div className="characteristic-value">
+                  {characteristic.value}
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </>
+    )
+  }
+
   return (
     <div className="_character-card" key={character.id}>
       <div className="character-name">{character.name}</div>
       <div className="characteristics info-block">
         <div className="info-title">Навыки</div>
         <div className="info-wrapper">
-          <div>
-            <div className="characteristic">
-              <div className="characteristic-name">Ловкость</div>
-              <div className="characteristic-value">{character.agility}</div>
-            </div>
-            <div className="characteristic">
-              <div className="characteristic-name">Харизма</div>
-              <div className="characteristic-value">{character.charisma}</div>
-            </div>
-            <div className="characteristic">
-              <div className="characteristic-name">Уклонение</div>
-              <div className="characteristic-value">{character.dodging}</div>
-            </div>
-            <div className="characteristic">
-              <div className="characteristic-name">Энергичность</div>
-              <div className="characteristic-value">{character.energy}</div>
-            </div>
-          </div>
-          <div>
-            <div className="characteristic">
-              <div className="characteristic-name">Интелект</div>
-              <div className="characteristic-value">
-                {character.intelligence}
-              </div>
-            </div>
-            <div className="characteristic">
-              <div className="characteristic-name">Жизненная сила</div>
-              <div className="characteristic-value">{character.lifeForce}</div>
-            </div>
-            <div className="characteristic">
-              <div className="characteristic-name">Сила</div>
-              <div className="characteristic-value">{character.power}</div>
-            </div>
-          </div>
+          <Characteristics />
         </div>
       </div>
 
