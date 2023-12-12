@@ -7,6 +7,8 @@ export class Character implements ICharacter {
   power: number = 0
   name: string
 
+  id: string = this.generateId()
+
   private _damage: number = 0
 
   get damage(): number {
@@ -94,11 +96,13 @@ export class Character implements ICharacter {
       power,
       skills,
       damage,
+      id,
     } = this
     return {
       agility,
       charisma,
       dodging,
+      id,
       energy,
       intelligence,
       lifeForce,
@@ -117,5 +121,10 @@ export class Character implements ICharacter {
     this.power = data.power
     this.skills = data.skills
     this._damage = data.damage
+    this.id = this.generateId()
+  }
+
+  generateId(): string {
+    return Math.random().toString(16).slice(2).toString()
   }
 }

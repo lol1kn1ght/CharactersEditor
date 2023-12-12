@@ -66,6 +66,9 @@ export interface ICharacter extends Parameters {
 
   /** @name Урон, полученный персонажем */
   damage: number
+
+  /** @name Уникальный идентификатор персонажа */
+  id: string
 }
 
 export enum SkillLabel {

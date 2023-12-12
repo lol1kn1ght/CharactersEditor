@@ -12,14 +12,17 @@ export const useCharactersStore = create<Store>((set) => ({
 
   setCharacters(characters: ICharacter[]) {
     set((state) => {
-      console.log(characters)
-
       characters.map((character) => {
-        const id = Math.random().toString(16).slice(2).toString()
-        console.log('set')
-
-        state.characters.set(id, character)
+        state.characters.set(character.id, character)
       })
+
+      return { characters: state.characters }
+    })
+  },
+
+  deletCharacter(characterId: string) {
+    set((state) => {
+      state.characters.delete(characterId)
 
       return { characters: state.characters }
     })
