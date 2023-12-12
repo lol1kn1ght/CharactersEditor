@@ -1,10 +1,15 @@
 .home-wrapper {
   width: 80%;
   height: max-content;
+  margin: 15vh 0;
 
   .content {
-    height: 500px;
+    min-height: 500px;
+    height: max-content;
     padding: 15px;
     background: #2c2b2b;
+
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
 }

@@ -2,8 +2,21 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
 import './App.scss'
+import { useEffect } from 'react'
+import { useCharactersStore } from './store'
+import { Character } from './entities/Character'
 
 export const App = () => {
+  const store = useCharactersStore()
+
+  useEffect(() => {
+    store.setCharacters([
+      new Character('LOlik1'),
+      new Character('abobki'),
+      new Character('abob2'),
+    ])
+  }, [])
+
   return (
     <div className="app">
       <Routes>

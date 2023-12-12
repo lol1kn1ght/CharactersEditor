@@ -2,59 +2,101 @@
   width: max-content;
   max-width: 300px;
   padding: 15px;
-  height: 300px;
+  height: max-content;
+  min-height: 300px;
+
   border-radius: 5px;
   background: #373535;
   gap: 15px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 
   .character-name {
     width: 100%;
     text-align: center;
+    font-size: large;
   }
 
   .characteristics {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(100px, max-content));
-    gap: 10px;
-
-    div {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
+    .info-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(max-content, 50%));
       gap: 10px;
 
-      .characteristic {
+      &:nth-child(2) > div {
+        width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        gap: 10px;
 
-        .name {
-          color: #7d8083;
-        }
-
-        .value {
+        .characteristic {
+          display: flex;
+          flex-direction: row;
           width: max-content;
+          gap: 3px;
+          font-size: medium;
+
+          .characteristic-name {
+            color: #707274;
+            &::after {
+              content: ':';
+            }
+          }
+
+          .characteristic-value {
+            width: max-content;
+          }
         }
       }
     }
   }
 
   .skills {
-    display: flex;
-    flex-direction: row;
-
-    .skill-tag {
+    .info-wrapper {
       display: flex;
-      flex-direction: row;
-      background: #2c2b2b;
-      border-radius: 5px;
-      padding: 5px;
-      gap: 5px;
-      width: max-content;
-      height: max-content;
-      flex: 1 0;
-      font-size: small;
+      flex-direction: column;
+      user-select: none;
+      gap: 2px;
+      flex-wrap: wrap;
+
+      .skill-tag {
+        display: flex;
+        flex-direction: row;
+        background: #2c2b2b;
+        border-radius: 5px;
+        padding: 5px;
+        gap: 5px;
+        width: max-content;
+        max-width: max-content;
+        height: max-content;
+        flex: 1 0;
+        white-space: nowrap;
+
+        .skill-name {
+          color: #707274;
+        }
+
+        font-size: smaller;
+      }
+    }
+  }
+
+  .info-block {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    background: #413e3e;
+    padding: 0.5rem;
+    border-radius: 5px;
+
+    .info-title {
+      color: white;
+      font-size: large;
+    }
+
+    .info-wrapper {
+      padding: 0.3rem;
     }
   }
 }

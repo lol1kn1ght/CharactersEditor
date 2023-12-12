@@ -1,26 +1,19 @@
 import { CharacterCard } from '../../../../components/CharacterCard'
-import { Character, SkillName } from '../../../../entities/Character'
+import { useCharactersStore } from '../../../../store'
+import './ViewCharacters.scss'
 
 export const ViewCharacters = () => {
-  const character = new Character('LoliKnight').editParameters({
-    agility: 5,
-    charisma: 5,
-    intelligence: 5,
-    power: 5,
-  })
+  const characters = useCharactersStore((state) => state.characters)
 
-  character.upgrade(SkillName.Appearance)
-  character.upgrade(SkillName.Appearance)
-  character.upgrade(SkillName.Appearance)
-  character.upgrade(SkillName.Appearance)
-  character.upgrade(SkillName.Archery)
-  character.upgrade(SkillName.Archery)
-  character.upgrade(SkillName.Archery)
-  character.upgrade(SkillName.Archery)
+  const charactersArray = [...characters.values()]
+
+  const charactersList = charactersArray.map((character) => (
+    <CharacterCard character={character} key={character.name} />
+  ))
 
   return (
-    <div>
-      <CharacterCard character={character} />
+    <div className="view-characters">
+      {charactersList[0] ? charactersList : 'Ваш список персонажей пуст!'}
     </div>
   )
 }

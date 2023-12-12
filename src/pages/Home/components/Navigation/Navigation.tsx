@@ -3,7 +3,7 @@ import './Navigation.scss'
 
 export const Navigation = () => {
   return (
-    <div className="_navigation">
+    <header className="_navigation">
       <div className="controls">
         <Link to="/characters" className="control">
           Персонажи
@@ -18,6 +18,6 @@ export const Navigation = () => {
           Экспорт
         </Link>
       </div>
-    </div>
+    </header>
   )
 }
