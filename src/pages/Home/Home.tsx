@@ -3,6 +3,7 @@ import { Default } from './views/Default'
 import { Editor } from './views/Editor'
 import './Home.scss'
 import { Navigation } from './components/Navigation'
+import { ViewCharacters } from './views/ViewCharacters'
 
 export const Home = () => {
   return (
@@ -15,6 +16,7 @@ export const Home = () => {
         <Routes>
           <Route path="/" element={<Default />} />
           <Route path="/editor" element={<Editor />} />
+          <Route path="/characters" element={<ViewCharacters />} />
           <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>
       </div>
