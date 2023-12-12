@@ -68,14 +68,17 @@ export class Character implements ICharacter {
   }
 
   upgrade(name: SkillName): this {
-    const skill = this.skills.filter((skill) => skill.name === name)[0]
+    const filteredSkill = this.skills.filter((skill) => skill.name === name)[0]
 
-    if (!skill) return this
+    if (!filteredSkill) return this
+    const indexOfSkill = this.skills.indexOf(filteredSkill)
+    const skill = { ...filteredSkill }
 
     if (skill.level + 1 > this[skill.baseParameter])
       skill.level = this[skill.baseParameter] as Skill['level']
     else ++skill.level
 
+    this.skills[indexOfSkill] = skill
     return this
   }
 
