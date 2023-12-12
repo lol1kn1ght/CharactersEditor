@@ -1,13 +1,22 @@
+import { Link } from 'react-router-dom'
 import './Navigation.scss'
 
 export const Navigation = () => {
   return (
     <div className="_navigation">
       <div className="controls">
-        <div className="control">Персонажи</div>
-        <div className="control">Редактор</div>
-        <div className="control">Экспорт</div>
-        <div className="control">Импорт</div>
+        <Link to="/characters" className="control">
+          Персонажи
+        </Link>
+        <Link to="/editor" className="control">
+          Редактор
+        </Link>
+        <Link to="/import" className="control">
+          Импорт
+        </Link>
+        <Link to="/export" className="control">
+          Экспорт
+        </Link>
       </div>
     </div>
   )
