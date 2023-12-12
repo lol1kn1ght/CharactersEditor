@@ -1,11 +1,11 @@
 import { SKillLevelLocalisations, SKillNameLocalisations } from '.'
-import { ICharacter, Skill } from '../../entities/Character'
+import { ICharacter, Skill } from 'entities/Character'
 import './CharacterCard.scss'
 
 export const CharacterCard = ({ character }: { character: ICharacter }) => {
   const SkillTag = ({ skill }: { skill: Skill }) => {
     return (
-      <div className="skill-tag" key={skill.name}>
+      <div className="skill-tag">
         <div className="skill-name">{SKillNameLocalisations[skill.name]}:</div>
         <div className="skill-level">
           {SKillLevelLocalisations[skill.level]}
@@ -70,7 +70,7 @@ export const CharacterCard = ({ character }: { character: ICharacter }) => {
   }
 
   return (
-    <div className="_character-card" key={character.id}>
+    <div className="_character-card">
       <div className="character-name">{character.name}</div>
       <div className="characteristics info-block">
         <div className="info-title">Навыки</div>
@@ -84,7 +84,7 @@ export const CharacterCard = ({ character }: { character: ICharacter }) => {
 
         <div className="info-wrapper">
           {character.skills.map((skill) => (
-            <SkillTag skill={skill} />
+            <SkillTag skill={skill} key={skill.name} />
           ))}
         </div>
       </div>

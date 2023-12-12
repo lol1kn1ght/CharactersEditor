@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { Default } from './views/Default'
 import { Editor } from './views/Editor'
 import './Home.scss'

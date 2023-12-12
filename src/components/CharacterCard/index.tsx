@@ -1,4 +1,4 @@
-import { SkillName, SkillLevels } from '../../entities/Character'
+import { SkillName, SkillLevels } from 'entities/Character'
 
 export * from './CharacterCard'
 

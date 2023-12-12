@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { ICharacter } from '../entities/Character'
+import { ICharacter } from 'entities/Character'
 
 export type Store = {
   characters: Map<string, ICharacter>
