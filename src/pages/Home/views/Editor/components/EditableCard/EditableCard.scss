@@ -1,0 +1,32 @@
+.editable-card {
+  width: max-content;
+
+  .field {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    .field-name {
+      text-align: center;
+      margin: auto;
+      width: max-content;
+    }
+  }
+}
+
+.editable-field {
+  height: 50px;
+  width: 120px;
+
+  p {
+    cursor: pointer;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    height: 25px;
+    margin-top: auto;
+    padding: 0;
+  }
+}
