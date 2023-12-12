@@ -83,7 +83,7 @@ export enum SkillLabel {
   Master = 'master',
 }
 
-export const SkilLevels = {
+export const SkillLevels = {
   0: SkillLabel.Untrained,
   1: SkillLabel.Beginner,
   2: SkillLabel.Student,
@@ -94,7 +94,7 @@ export const SkilLevels = {
 
 export type Skill = {
   name: SkillName
-  level: keyof typeof SkilLevels
+  level: keyof typeof SkillLevels
   baseParameter: keyof BaseParameters
 }
 
