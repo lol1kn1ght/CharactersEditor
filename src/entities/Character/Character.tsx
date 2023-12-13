@@ -6,6 +6,7 @@ export class Character implements ICharacter {
   intelligence: number = 0
   power: number = 0
   name: string
+  createdAt: number
 
   id: string
 
@@ -36,6 +37,7 @@ export class Character implements ICharacter {
     else if (typeof data === 'string') {
       this.name = data
       this.id = this.generateId()
+      this.createdAt = new Date().getTime()
     }
   }
 
@@ -103,6 +105,7 @@ export class Character implements ICharacter {
       power,
       skills,
       damage,
+      createdAt,
       id,
     } = this
     return {
@@ -115,6 +118,7 @@ export class Character implements ICharacter {
       lifeForce,
       name,
       power,
+      createdAt,
       damage,
       skills,
     }

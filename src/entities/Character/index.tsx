@@ -69,6 +69,9 @@ export interface ICharacter extends Parameters {
 
   /** @name Уникальный идентификатор персонажа */
   id: string
+
+  /** @name Дата создания персонажа */
+  createdAt: number
 }
 
 export enum SkillLabel {
