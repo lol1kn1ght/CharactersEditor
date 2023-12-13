@@ -32,9 +32,10 @@ export const Import = () => {
   }
   return (
     <div className="import-view">
-      <div className="import-title">Скачать ваших персонажей</div>
+      <div className="import-title">Загрузить ваших персонажей</div>
       <div className="import-description">
-        Нажмите на кнопку ниже чтобы скачать файл с вашими персонажами
+        Чтобы загрузить ваших персонажей из скачанного ранее файла, нажмите на
+        кнопку ниже
       </div>
 
       <input
