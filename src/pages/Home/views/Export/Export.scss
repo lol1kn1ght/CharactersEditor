@@ -1,0 +1,32 @@
+.export-view {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  width: max-content;
+  margin: auto;
+  align-items: center;
+
+  .export-title {
+    font-size: larger;
+  }
+
+  .export-description {
+  }
+
+  .export-form {
+    text-align: center;
+    padding: 10px;
+    width: max-content;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(83, 80, 80, 1);
+    transition: all 0.3s;
+
+    @media (hover: hover) {
+      &:hover {
+        background: rgba(83, 80, 80, 0.5);
+      }
+    }
+  }
+}
