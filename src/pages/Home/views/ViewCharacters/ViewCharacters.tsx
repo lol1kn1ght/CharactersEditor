@@ -5,9 +5,7 @@ import './ViewCharacters.scss'
 export const ViewCharacters = () => {
   const characters = useCharactersStore((state) => state.characters)
 
-  const charactersArray = [...characters.values()]
-
-  const charactersList = charactersArray.map((character) => (
+  const charactersList = characters.map((character) => (
     <CharacterCard character={character} key={character.id} />
   ))
 
