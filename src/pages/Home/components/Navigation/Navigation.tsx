@@ -1,26 +1,31 @@
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import './Navigation.scss'
 import { useState } from 'react'
 
 export const Navigation = () => {
-  const [current, setCurrent] = useState<string>('/')
+  const params = useParams()
+  const [current, setCurrent] = useState<string>(params['*'] || '')
 
-  const routes: { to: string; name: string }[] = [
+  const routes: { to: string; label: string; name: string }[] = [
     {
-      name: 'Персонажи',
+      label: 'Персонажи',
       to: '/',
+      name: '',
     },
     {
-      name: 'Редактор',
+      label: 'Редактор',
       to: '/editor',
+      name: 'editor',
     },
     {
-      name: 'Иморт',
+      label: 'Иморт',
       to: '/import',
+      name: 'import',
     },
     {
-      name: 'Экспорт',
+      label: 'Экспорт',
       to: '/export',
+      name: 'export',
     },
   ]
 
@@ -34,11 +39,11 @@ export const Navigation = () => {
         {routes.map((route) => (
           <Link
             to={route.to}
-            className={`control ${route.to === current ? 'active' : ''}`}
-            onClick={() => onClick(route.to)}
+            className={`control ${route.name === current ? 'active' : ''}`}
+            onClick={() => onClick(route.name)}
             key={route.to}
           >
-            {route.name}
+            {route.label}
           </Link>
         ))}
       </div>
