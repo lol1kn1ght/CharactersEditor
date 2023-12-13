@@ -1,8 +1,10 @@
 import { create } from 'zustand'
 import { Character } from 'entities/Character'
 
+const Characters: Map<string, Character> = new Map()
+
 export type Store = {
-  characters: Map<string, Character>
+  characters: Character[]
 
   setCharacters(characters: Character[]): void
   updateCharacter(id: string, data: Character): void
@@ -11,39 +13,43 @@ export type Store = {
 }
 
 export const useCharactersStore = create<Store>((set) => ({
-  characters: new Map(),
+  get characters(): Character[] {
+    return [...Characters.values()].sort(
+      (prev, curr) => curr.createdAt - prev.createdAt
+    )
+  },
 
   createCharacter(character: Character) {
-    set((state) => {
-      state.characters.set(character.id, character)
+    set(() => {
+      Characters.set(character.id, character)
 
-      return { characters: state.characters }
+      return { characters: [...Characters.values()] }
     })
   },
 
   updateCharacter(id: string, data: Character) {
-    set((state) => {
-      state.characters.set(id, data)
+    set(() => {
+      Characters.set(id, data)
 
-      return { characters: state.characters }
+      return { characters: [...Characters.values()] }
     })
   },
 
   setCharacters(characters: Character[]) {
-    set((state) => {
+    set(() => {
       characters.map((character) => {
-        state.characters.set(character.id, character)
+        Characters.set(character.id, character)
       })
 
-      return { characters: state.characters }
+      return { characters: [...Characters.values()] }
     })
   },
 
   deleteCharacter(characterId: string) {
-    set((state) => {
-      state.characters.delete(characterId)
+    set(() => {
+      Characters.delete(characterId)
 
-      return { characters: state.characters }
+      return { characters: [...Characters.values()] }
     })
   },
 }))
