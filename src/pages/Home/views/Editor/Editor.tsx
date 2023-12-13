@@ -6,7 +6,7 @@ import { Character } from 'entities/Character'
 export const Editor = () => {
   const store = useCharactersStore()
 
-  const characters = [...store.characters.values()]
+  const { characters } = store
 
   const onSave = (data: Character) => {
     store.updateCharacter(data.id, data)
@@ -26,6 +26,10 @@ export const Editor = () => {
     alert(`Вы успешно удалили персонажа "${data.name}"`)
   }
 
+  const newCharacter = () => {
+    store.createCharacter(new Character('Поменяй меня'))
+  }
+
   const charactersArray = characters.map((character) => (
     <EditableCard
       onDelete={onDelete}
@@ -37,7 +41,13 @@ export const Editor = () => {
 
   return (
     <div className="editor-view">
-      {characters[0] ? charactersArray : 'Ваш список персонажей пуст!'}
+      <div className="editor-actions">
+        <button onClick={newCharacter}>Новый персонаж</button>
+      </div>
+
+      <div className="characters">
+        {characters[0] ? charactersArray : 'Ваш список персонажей пуст!'}
+      </div>
     </div>
   )
 }
