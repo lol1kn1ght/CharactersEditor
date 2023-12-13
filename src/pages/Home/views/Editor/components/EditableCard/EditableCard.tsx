@@ -12,9 +12,11 @@ import {
 export const EditableCard = ({
   character,
   onSave,
+  onDelete,
 }: {
   character: Character
   onSave: (data: Character) => any
+  onDelete: (data: Character) => any
 }) => {
   const [data, setData] = useState<Character>(new Character(character.toJSON()))
 
@@ -98,54 +100,64 @@ export const EditableCard = ({
 
   return (
     <div className="editable-card">
-      <div className="field">
-        <div className="field-name">Имя</div>
-        <div className="field-value">
-          <EditableField
-            type="string"
-            onChange={(newValue) => (data.name = newValue.toString())}
-            value={character.name}
-          />
+      <div className="parameters edit-block">
+        <div className="edit-title">Параметры</div>
+        <div className="edit-wrapper">
+          <div className="field">
+            <div className="field-name">Имя</div>
+            <div className="field-value">
+              <EditableField
+                type="string"
+                onChange={(newValue) => (data.name = newValue.toString())}
+                value={character.name}
+              />
+            </div>
+          </div>
+          {fields.map((field) => (
+            <div className="field" key={field.name}>
+              <div className="field-name">{field.name}</div>
+              <div className="field-value">
+                <EditableField
+                  type="number"
+                  onChange={field.callback}
+                  value={field.value}
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {fields.map((field) => (
-        <div className="field" key={field.name}>
-          <div className="field-name">{field.name}</div>
-          <div className="field-value">
-            <EditableField
-              type="number"
-              onChange={field.callback}
-              value={field.value}
-            />
-          </div>
+      <div className="skills edit-block">
+        <div className="edit-title">Скиллы</div>
+        <div className="edit-wrapper">
+          <SelectMenu
+            onChange={(value: string) => {
+              upgradeSkill(value as SkillName)
+            }}
+          >
+            <SelectOption>Выберите значение</SelectOption>
+            {data.skills.map((skill) => (
+              <SelectOption
+                disabled={skill.level === 5}
+                value={skill.name}
+                key={skill.name}
+              >
+                {SKillNameLocalisations[skill.name]} [{[skill.level]}]
+              </SelectOption>
+            ))}
+          </SelectMenu>
         </div>
-      ))}
-
-      <div className="skills">
-        <SelectMenu
-          onChange={(value: string) => {
-            upgradeSkill(value as SkillName)
-          }}
-        >
-          <SelectOption>Выберите значение</SelectOption>
-          {data.skills.map((skill) => (
-            <SelectOption
-              disabled={skill.level === 5}
-              value={skill.name}
-              key={skill.name}
-            >
-              {SKillNameLocalisations[skill.name]} [{[skill.level]}]
-            </SelectOption>
-          ))}
-        </SelectMenu>
       </div>
 
       <div className="actions">
-        <button className="hit" onClick={damage}>
+        <button className="secondary" onClick={damage}>
           Ударить
         </button>
-        <button className="save" onClick={() => onSave(data)}>
+        <button className="red" onClick={() => onDelete(data)}>
+          Удалить
+        </button>
+        <button className="green" onClick={() => onSave(data)}>
           Сохранить
         </button>
       </div>

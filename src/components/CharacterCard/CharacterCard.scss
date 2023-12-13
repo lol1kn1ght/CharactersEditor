@@ -4,7 +4,7 @@
   padding: 15px;
   height: max-content;
   min-height: 300px;
-
+  transition: all 0.3s;
   border-radius: 5px;
   background: #373535;
   gap: 15px;
@@ -12,6 +12,9 @@
   flex-direction: column;
   justify-content: space-around;
 
+  &:hover {
+    transform: scale(101%);
+  }
   .character-name {
     width: 100%;
     text-align: center;

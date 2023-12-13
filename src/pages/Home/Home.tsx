@@ -13,9 +13,8 @@ export const Home = () => {
 
       <div className="content">
         <Routes>
-          <Route path="/" element={<Default />} />
+          <Route path="/" element={<ViewCharacters />} />
           <Route path="/editor" element={<Editor />} />
-          <Route path="/characters" element={<ViewCharacters />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

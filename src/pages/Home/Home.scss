@@ -1,5 +1,4 @@
 .home-wrapper {
-  width: 80%;
   height: max-content;
   margin: 15vh 0;
 
@@ -11,5 +10,13 @@
 
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+  }
+
+  @media (min-width: 30em) {
+    width: 80%;
+  }
+
+  @media (max-width: 30em) {
+    width: 95%;
   }
 }

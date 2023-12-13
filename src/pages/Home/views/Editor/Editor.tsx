@@ -15,15 +15,29 @@ export const Editor = () => {
     )
   }
 
+  const onDelete = async (data: Character) => {
+    const answer = window.confirm(
+      `Вы точно хотите удалить персонажа "${data.name}"?`
+    )
+
+    if (!answer) return
+
+    store.deleteCharacter(data.id)
+    alert(`Вы успешно удалили персонажа "${data.name}"`)
+  }
+
+  const charactersArray = characters.map((character) => (
+    <EditableCard
+      onDelete={onDelete}
+      onSave={onSave}
+      character={character}
+      key={character.id}
+    />
+  ))
+
   return (
     <div className="editor-view">
-      {characters.map((character) => (
-        <EditableCard
-          onSave={onSave}
-          character={character}
-          key={character.id}
-        />
-      ))}
+      {characters[0] ? charactersArray : 'Ваш список персонажей пуст!'}
     </div>
   )
 }
