@@ -24,9 +24,21 @@
       padding: 10px;
       border-radius: 5px;
 
-      &:hover {
+      @media (hover: hover) {
+        &:hover {
+          background: rgba(83, 80, 80, 0.5);
+        }
+      }
+
+      &.active {
         background: rgba(83, 80, 80, 0.5);
       }
+    }
+  }
+
+  @media (max-width: 30em) {
+    .control {
+      font-size: small;
     }
   }
 }
