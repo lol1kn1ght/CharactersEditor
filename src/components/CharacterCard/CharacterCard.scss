@@ -38,7 +38,6 @@
           flex-direction: row;
           width: max-content;
           gap: 3px;
-          font-size: medium;
 
           .characteristic-name {
             color: #707274;
@@ -100,6 +99,18 @@
 
     .info-wrapper {
       padding: 0.3rem;
+    }
+  }
+
+  @media (max-width: 30em) {
+    .characteristic {
+      font-size: smaller;
+    }
+  }
+
+  @media (min-width: 30em) {
+    .characteristic {
+      font-size: medium;
     }
   }
 }
