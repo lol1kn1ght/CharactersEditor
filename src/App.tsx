@@ -11,9 +11,11 @@ export const App = () => {
 
   useEffect(() => {
     store.setCharacters([
-      new Character('LOlik1'),
+      new Character('LOlik1').editParameters({
+        power: 10,
+      }),
       new Character('abobki'),
-      new Character('abob2'),
+      new Character('abob2').selfDamage().selfDamage(),
     ])
   }, [])
 

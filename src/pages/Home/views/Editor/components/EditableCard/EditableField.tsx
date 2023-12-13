@@ -1,35 +1,26 @@
 import { useState } from 'react'
+import { InputText } from './InputText'
+import { InputNum } from './InputNum'
 
 type InputFieldType = 'number' | 'string'
 
 export const EditableField = ({
   value,
   type,
+  onChange,
 }: {
-  value: string
-  type?: InputFieldType
+  value: string | number
+  onChange: (value: string | number) => any
+  type: InputFieldType
 }) => {
-  const [localValue, setLocalValue] = useState(value)
-  const [display, setDisplay] = useState<'preview' | 'input'>('preview')
-
-  const onClick = (event: React.MouseEvent<HTMLElement>) => {
-    if (event.detail != 2) return
-
-    if (display === 'preview') setDisplay('input')
-    else setDisplay('preview')
-  }
+  const [_value, _setValue] = useState<string | number>(value)
 
   return (
-    <div className="editable-field" onClick={onClick}>
-      {display === 'input' ? (
-        <input
-          type="text"
-          value={localValue}
-          placeholder={localValue || 'Введите новое значение'}
-          onChange={(e) => setLocalValue(e.target.value)}
-        />
+    <div className="editable-field">
+      {type === 'string' ? (
+        <InputText onChange={onChange} value={_value.toString()} />
       ) : (
-        <p>{localValue}</p>
+        <InputNum value={Number(_value)} onChange={onChange} />
       )}
     </div>
   )

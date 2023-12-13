@@ -1,4 +1,8 @@
-import { SKillLevelLocalisations, SKillNameLocalisations } from '.'
+import {
+  ParametersLocalisations,
+  SKillLevelLocalisations,
+  SKillNameLocalisations,
+} from '.'
 import { ICharacter, Skill } from 'entities/Character'
 import './CharacterCard.scss'
 
@@ -18,33 +22,33 @@ export const CharacterCard = ({ character }: { character: ICharacter }) => {
   const characteristics: { name: string; value: number }[][] = [
     [
       {
-        name: 'Ловкость',
+        name: ParametersLocalisations.agility,
         value: character.agility,
       },
       {
-        name: 'Харизма',
+        name: ParametersLocalisations.charisma,
         value: character.charisma,
       },
       {
-        name: 'Уклонение',
+        name: ParametersLocalisations.dodging,
         value: character.dodging,
       },
       {
-        name: 'Энергичность',
+        name: ParametersLocalisations.energy,
         value: character.energy,
       },
     ],
     [
       {
-        name: 'Интелект',
+        name: ParametersLocalisations.intelligence,
         value: character.intelligence,
       },
       {
-        name: 'Жизненная сила',
+        name: ParametersLocalisations.lifeForce,
         value: character.lifeForce,
       },
       {
-        name: 'Сила',
+        name: ParametersLocalisations.power,
         value: character.power,
       },
     ],

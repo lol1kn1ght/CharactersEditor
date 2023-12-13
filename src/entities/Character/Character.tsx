@@ -7,7 +7,7 @@ export class Character implements ICharacter {
   power: number = 0
   name: string
 
-  id: string = this.generateId()
+  id: string
 
   private _damage: number = 0
 
@@ -32,10 +32,11 @@ export class Character implements ICharacter {
   constructor(data: ICharacter)
   constructor(name: string)
   constructor(data: string | ICharacter) {
-    this.name = ''
-
     if (typeof data === 'object') this.import(data)
-    else if (typeof data === 'string') this.name = data
+    else if (typeof data === 'string') {
+      this.name = data
+      this.id = this.generateId()
+    }
   }
 
   editParameters(
@@ -65,7 +66,7 @@ export class Character implements ICharacter {
   }
 
   private _format(num: number): number {
-    if (num < 0) return 0
+    if (num < 0 || isNaN(num)) return 0
     return num
   }
 
@@ -82,6 +83,12 @@ export class Character implements ICharacter {
 
     this.skills[indexOfSkill] = skill
     return this
+  }
+
+  getSkill(name: SkillName): Skill | null {
+    const skill = this.skills.filter((skill) => skill.name === name)[0]
+
+    return skill
   }
 
   toJSON(): ICharacter {
@@ -115,13 +122,13 @@ export class Character implements ICharacter {
 
   import(data: ICharacter) {
     this.name = data.name
-    this.agility = data.agility
-    this.charisma = data.charisma
-    this.intelligence = data.intelligence
-    this.power = data.power
+    this.agility = this._format(data.agility)
+    this.charisma = this._format(data.charisma)
+    this.intelligence = this._format(data.intelligence)
+    this.power = this._format(data.power)
     this.skills = data.skills
-    this._damage = data.damage
-    this.id = this.generateId()
+    this._damage = this._format(data.damage)
+    this.id = data.id || this.generateId()
   }
 
   generateId(): string {

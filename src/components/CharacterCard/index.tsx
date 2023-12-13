@@ -1,6 +1,16 @@
-import { SkillName, SkillLevels } from 'entities/Character'
+import { SkillName, SkillLevels, Parameters } from 'entities/Character'
 
 export * from './CharacterCard'
+
+export const ParametersLocalisations: Record<keyof Parameters, string> = {
+  agility: 'Ловкость',
+  charisma: 'Харизма',
+  dodging: 'Уклонение',
+  energy: 'Энергичность',
+  intelligence: 'Интелект',
+  lifeForce: 'Жизненная сила',
+  power: 'Сила',
+}
 
 export const SKillNameLocalisations: Record<SkillName, string> = {
   appearance: 'Внешний вид',

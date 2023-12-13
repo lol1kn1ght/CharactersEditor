@@ -1,15 +1,54 @@
 .editable-card {
   width: max-content;
+  background: #373535;
+  padding: 0.5rem;
+  border-radius: 5px;
 
   .field {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    justify-content: space-between;
 
     .field-name {
       text-align: center;
-      margin: auto;
+      margin: auto 0;
       width: max-content;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0.4rem;
+
+    button {
+      border: none;
+      background: none;
+      color: #fafbfc;
+      border-radius: 5px;
+      padding: 5px;
+      flex: 1 0;
+      cursor: pointer;
+      font-size: medium;
+      transition: all 0.2s;
+
+      &.hit {
+        background: #ec4449;
+
+        &:hover {
+          background: rgba(236, 68, 73, 0.7);
+        }
+      }
+
+      &.save {
+        background: #3ea562;
+
+        &:hover {
+          background: rgba(62, 165, 98, 0.7);
+        }
+      }
     }
   }
 }
@@ -17,16 +56,57 @@
 .editable-field {
   height: 50px;
   width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  p {
-    cursor: pointer;
+  .input-text {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+      height: 25px;
+      width: 100%;
+      background: #413e3e;
+      color: #fafbfc;
+      border: none;
+      border-radius: 5px;
+      padding: 0 5px;
+    }
   }
 
-  input {
-    width: 100%;
-    border: none;
-    height: 25px;
-    margin-top: auto;
-    padding: 0;
+  .input-num {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-around;
+
+    .input-controls {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      height: max-content;
+
+      .plus,
+      .minus {
+        padding: 5px;
+        background: #413e3e;
+        border-radius: 5px;
+        flex: 1 0;
+        margin: 0;
+        width: 15px;
+        text-align: center;
+        user-select: none;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(83, 80, 80, 0.5);
+        }
+      }
+    }
   }
 }
