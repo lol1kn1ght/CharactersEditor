@@ -36,6 +36,7 @@ export const Navigation = () => {
             to={route.to}
             className={`control ${route.to === current ? 'active' : ''}`}
             onClick={() => onClick(route.to)}
+            key={route.to}
           >
             {route.name}
           </Link>
