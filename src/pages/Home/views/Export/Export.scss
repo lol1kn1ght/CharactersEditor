@@ -2,15 +2,21 @@
   display: flex;
   gap: 20px;
   flex-direction: column;
-  width: max-content;
+  width: 100%;
+  max-width: max-content;
   margin: auto;
   align-items: center;
 
   .export-title {
     font-size: larger;
+    width: max-content;
+    font-size: larger;
   }
 
   .export-description {
+    overflow-wrap: break-word;
+    width: 100%;
+    text-align: center;
   }
 
   .export-form {
