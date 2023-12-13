@@ -7,16 +7,25 @@ export type Store = {
   setCharacters(characters: Character[]): void
   updateCharacter(id: string, data: Character): void
   deleteCharacter(id: string): void
+  createCharacter(character: Character): void
 }
 
 export const useCharactersStore = create<Store>((set) => ({
   characters: new Map(),
 
+  createCharacter(character: Character) {
+    set((state) => {
+      state.characters.set(character.id, character)
+
+      return { characters: state.characters }
+    })
+  },
+
   updateCharacter(id: string, data: Character) {
     set((state) => {
-      this.characters.set(id, data)
+      state.characters.set(id, data)
 
-      return { characters: this.characters }
+      return { characters: state.characters }
     })
   },
 
