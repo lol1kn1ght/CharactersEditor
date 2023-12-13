@@ -9,7 +9,7 @@
 ### Production
 
 ```
-$ npm i && npm run serve -g
+$ npm i && npm i serve -g
 $ npm run build
 $ npx serve -s build -l 3000
 ```
