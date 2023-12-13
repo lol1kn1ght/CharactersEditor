@@ -132,6 +132,7 @@ export class Character implements ICharacter {
     this.power = this._format(data.power)
     this.skills = data.skills
     this._damage = this._format(data.damage)
+    this.createdAt = data.createdAt
     this.id = data.id || this.generateId()
   }
 
