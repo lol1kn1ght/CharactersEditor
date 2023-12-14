@@ -109,6 +109,8 @@ export class Character implements ICharacter {
     const indexOfSkill = this.skills.indexOf(filteredSkill)
     const skill = { ...filteredSkill }
 
+    if (skill.level + 1 > this._MAX_SKILL_LEVEL) return this
+
     if (skill.level + 1 > this[skill.baseParameter])
       skill.level = this[skill.baseParameter] as Skill['level']
     else ++skill.level
