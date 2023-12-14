@@ -52,38 +52,44 @@ export type DynamicParameters = {
 }
 
 /**
- * @name Параметры персонажа
- * @description Параметры которые может иметь персонаж
+ * Параметры персонажа
+ * Параметры которые может иметь персонаж
  */
 export type Parameters = BaseParameters & DynamicParameters
 
 export interface ICharacter extends Parameters {
-  /** @name Имя персонажа */
+  /** Имя персонажа */
   name: string
 
-  /** @name Навыки персонажа */
+  /** Навыки персонажа */
   skills: Skills
 
-  /** @name Урон, полученный персонажем */
+  /** Урон, полученный персонажем */
   damage: number
+
+  /** Уникальный идентификатор персонажа */
+  id: string
+
+  /** Дата создания персонажа */
+  createdAt: number
 }
 
 export enum SkillLabel {
-  /** @name Нетренированный */
+  /** Нетренированный */
   Untrained = 'untrained',
-  /** @name Новичок */
+  /** Новичок */
   Beginner = 'beginner',
-  /** @name Ученик */
+  /** Ученик */
   Student = 'student',
-  /** @name Адепт */
+  /** Адепт */
   Adept = 'adept',
-  /** @name Эксперт */
+  /** Эксперт */
   Expert = 'expert',
-  /** @name Мастер */
+  /** Мастер */
   Master = 'master',
 }
 
-export const SkilLevels = {
+export const SkillLevels = {
   0: SkillLabel.Untrained,
   1: SkillLabel.Beginner,
   2: SkillLabel.Student,
@@ -93,36 +99,50 @@ export const SkilLevels = {
 }
 
 export type Skill = {
+  /**
+   * Название скилла
+   */
   name: SkillName
-  level: keyof typeof SkilLevels
+
+  /**
+   * Уровень скилла
+   */
+  level: keyof typeof SkillLevels
+
+  /**
+   * Базовый параметр, от которого зависит скилл
+   */
   baseParameter: keyof BaseParameters
 }
 
 export enum SkillName {
-  /** @name Атака */
+  /** Атака */
   Attack = 'attack',
-  /** @name Стелс */
+  /** Стелс */
   Stealth = 'stealth',
-  /** @name Стрельба из лука */
+  /** Стрельба из лука */
   Archery = 'archery',
-  /** @name Обучаемость */
+  /** Обучаемость */
   Trainability = 'trainability',
-  /** @name Выживание */
+  /** Выживание */
   Surviving = 'surviving',
-  /** @name Медицина */
+  /** Медицина */
   Medicine = 'medicine',
-  /** @name Запугивание */
+  /** Запугивание */
   Intimidation = 'intimidation',
-  /** @name Проницательность */
+  /** Проницательность */
   Insight = 'insight',
-  /** @name Внешний вид */
+  /** Внешний вид */
   Appearance = 'appearance',
-  /** @name Манипулирование */
+  /** Манипулирование */
   Manipulation = 'manipulation',
 }
 
 export type Skills = Skill[]
 
+/**
+ * Набор скиллов, назначающийся персонажу по умолчанию
+ */
 export const DefaultSkills: Skills = [
   {
     level: 0,

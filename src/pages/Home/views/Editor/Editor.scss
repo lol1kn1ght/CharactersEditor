@@ -1,0 +1,36 @@
+.editor-view {
+  .editor-actions {
+    width: 100%;
+    margin-bottom: 2vh;
+    height: 40px;
+
+    button {
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      color: var(--colors-system-text);
+      background: var(--colors-secondary-focus);
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.3s;
+      height: 100%;
+      font-size: medium;
+
+      @media (hover: hover) {
+        &:hover {
+          background: var(--colors-secondary-focus-hover);
+        }
+      }
+    }
+  }
+
+  .characters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}

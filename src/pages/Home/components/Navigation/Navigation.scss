@@ -1,7 +1,7 @@
 ._navigation {
-  width: 100%;
+  max-width: 100%;
   padding: 10px;
-  background: #373535;
+  background: var(--colors-secondary-default);
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 
@@ -13,15 +13,32 @@
     justify-content: space-around;
 
     .control {
-      flex: 1 0;
       text-align: center;
       user-select: none;
+
       cursor: pointer;
       transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      border-radius: 5px;
 
-      &:hover {
-        background: rgba($color: #373535, $alpha: 0.3);
+      @media (hover: hover) {
+        &:hover {
+          background: var(--colors-secondary-focus-opacity-80);
+        }
       }
+
+      &.active {
+        background: var(--colors-secondary-focus-opacity-80);
+      }
+    }
+  }
+
+  @media (max-width: 30em) {
+    .control {
+      font-size: small;
     }
   }
 }

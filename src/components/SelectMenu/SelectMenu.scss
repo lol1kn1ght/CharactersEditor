@@ -1,0 +1,25 @@
+._select-menu {
+  width: 100%;
+  outline: none;
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5em 0.5em;
+  background-color: var(--colors-secondary-background);
+  border: 1px solid var(--colors-system-text);
+  border-radius: 0.25rem;
+  color: var(----colors-system-text);
+  border: var(--colors-secondary-background);
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    --size: 0.3rem;
+    content: '';
+    position: absolute;
+    right: 1rem;
+    pointer-events: none;
+  }
+}

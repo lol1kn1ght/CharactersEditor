@@ -1,0 +1,116 @@
+._character-card {
+  width: max-content;
+  max-width: 300px;
+  padding: 15px;
+  height: max-content;
+  min-height: 300px;
+  transition: all 0.3s;
+  border-radius: 5px;
+  background: var(--colors-secondary-default);
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  &:hover {
+    transform: scale(101%);
+  }
+  .character-name {
+    width: 100%;
+    text-align: center;
+    font-size: large;
+  }
+
+  .characteristics {
+    .info-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(max-content, 50%));
+      gap: 10px;
+
+      &:nth-child(2) > div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .characteristic {
+          display: flex;
+          flex-direction: row;
+          width: max-content;
+          gap: 3px;
+
+          .characteristic-name {
+            color: var(--colors-secondary-text);
+            &::after {
+              content: ':';
+            }
+          }
+
+          .characteristic-value {
+            width: max-content;
+          }
+        }
+      }
+    }
+  }
+
+  .skills {
+    .info-wrapper {
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+      gap: 2px;
+      flex-wrap: wrap;
+
+      .skill-tag {
+        display: flex;
+        flex-direction: row;
+        background: var(--colors-secondary-background);
+        border-radius: 5px;
+        padding: 5px;
+        gap: 5px;
+        width: max-content;
+        max-width: max-content;
+        height: max-content;
+        flex: 1 0;
+        white-space: nowrap;
+
+        .skill-name {
+          color: var(--colors-secondary-text);
+        }
+
+        font-size: smaller;
+      }
+    }
+  }
+
+  .info-block {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    background: var(--colors-secondary-focus);
+    padding: 0.5rem;
+    border-radius: 5px;
+
+    .info-title {
+      color: var(--colors-system-text);
+      font-size: large;
+    }
+
+    .info-wrapper {
+      padding: 0.3rem;
+    }
+  }
+
+  @media (max-width: 30em) {
+    .characteristic {
+      font-size: smaller;
+    }
+  }
+
+  @media (min-width: 30em) {
+    .characteristic {
+      font-size: medium;
+    }
+  }
+}

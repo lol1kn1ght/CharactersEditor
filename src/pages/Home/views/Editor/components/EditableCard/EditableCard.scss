@@ -1,0 +1,141 @@
+.editable-card {
+  width: max-content;
+  background: var(--colors-secondary-default);
+  padding: 0.7rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .edit-block {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--colors-secondary-focus);
+    border-radius: 5px;
+
+    .edit-title {
+      font-size: large;
+    }
+
+    .edit-wrapper {
+      padding: 0 0.5rem;
+
+      .field {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+
+        .field-name {
+          text-align: center;
+          margin: auto 0;
+          width: max-content;
+        }
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0.4rem;
+
+    button {
+      border: none;
+      background: none;
+      color: var(--colors-system-text);
+      border-radius: 5px;
+      padding: 10px;
+      flex: 1 0;
+      cursor: pointer;
+      font-size: medium;
+      transition: all 0.2s;
+      height: 100%;
+
+      &.red {
+        background: var(--colors-error-default);
+
+        &:hover {
+          background: var(--colors-error-hover);
+        }
+      }
+
+      &.green {
+        background: var(--colors-success-default);
+
+        &:hover {
+          background: var(--colors-success-hover);
+        }
+      }
+
+      &.secondary {
+        background: var(--colors-secondary-focus);
+
+        &:hover {
+          background: var(--colors-secondary-focus-hover);
+        }
+      }
+    }
+  }
+}
+
+.editable-field {
+  height: 50px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .input-text {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+      height: 30px;
+      width: 100%;
+      background: var(--colors-secondary-background);
+      color: var(--colors-system-text);
+      border: none;
+      border-radius: 5px;
+      padding: 0 5px;
+    }
+  }
+
+  .input-num {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-around;
+
+    .input-controls {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      height: max-content;
+
+      .plus,
+      .minus {
+        padding: 5px;
+        background: var(--colors-secondary-background);
+        border-radius: 5px;
+        flex: 1 0;
+        margin: 0;
+        width: 15px;
+        text-align: center;
+        user-select: none;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          background: var(--colors-secondary-background-hover);
+        }
+      }
+    }
+  }
+}

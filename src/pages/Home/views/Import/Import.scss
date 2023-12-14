@@ -1,0 +1,38 @@
+.import-view {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  width: 100%;
+  max-width: max-content;
+  margin: auto;
+  align-items: center;
+
+  .import-title {
+    font-size: larger;
+    width: max-content;
+    font-size: larger;
+  }
+
+  .import-description {
+    overflow-wrap: break-word;
+    width: 100%;
+    text-align: center;
+  }
+
+  .import-form {
+    text-align: center;
+    padding: 10px;
+    width: max-content;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--colors-secondary-focus);
+    transition: all 0.3s;
+
+    @media (hover: hover) {
+      &:hover {
+        background: var(--colors-secondary-focus-hover);
+      }
+    }
+  }
+}

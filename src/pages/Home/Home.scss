@@ -1,11 +1,22 @@
 .home-wrapper {
-  width: 80%;
   height: max-content;
+  margin: 15vh 0;
 
   .content {
-    height: 500px;
-    width: 100%;
-    padding: 10px;
-    background: #2c2b2b;
+    min-height: 500px;
+    height: max-content;
+    padding: 15px;
+    background: var(--colors-secondary-background);
+
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  @media (min-width: 30em) {
+    width: 80%;
+  }
+
+  @media (max-width: 30em) {
+    width: 95%;
   }
 }
