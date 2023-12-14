@@ -128,33 +128,19 @@ export class Character implements ICharacter {
    * @returns Данные персонажа в JSON формате
    */
   toJSON(): ICharacter {
-    const {
-      agility,
-      charisma,
-      dodging,
-      energy,
-      intelligence,
-      lifeForce,
-      name,
-      power,
-      skills,
-      damage,
-      createdAt,
-      id,
-    } = this
     return {
-      agility,
-      charisma,
-      dodging,
-      id,
-      energy,
-      intelligence,
-      lifeForce,
-      name,
-      power,
-      createdAt,
-      damage,
-      skills,
+      agility: this.agility,
+      charisma: this.charisma,
+      dodging: this.dodging,
+      id: this.id,
+      energy: this.energy,
+      intelligence: this.intelligence,
+      lifeForce: this.lifeForce,
+      name: this.name,
+      power: this.power,
+      createdAt: this.createdAt,
+      damage: this.damage,
+      skills: this.skills,
     }
   }
 
