@@ -18,7 +18,7 @@ export const Navigation = () => {
       name: 'editor',
     },
     {
-      label: 'Иморт',
+      label: 'Импорт',
       to: '/import',
       name: 'import',
     },
