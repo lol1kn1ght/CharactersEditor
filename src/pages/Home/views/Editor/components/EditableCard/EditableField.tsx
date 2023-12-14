@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { InputText } from './InputText'
 import { InputNum } from './InputNum'
 
@@ -13,14 +12,12 @@ export const EditableField = ({
   onChange: (value: string | number) => any
   type: InputFieldType
 }) => {
-  const [_value, _setValue] = useState<string | number>(value)
-
   return (
     <div className="editable-field">
       {type === 'string' ? (
-        <InputText onChange={onChange} value={_value.toString()} />
+        <InputText onChange={onChange} value={value.toString()} />
       ) : (
-        <InputNum value={Number(_value)} onChange={onChange} />
+        <InputNum value={Number(value)} onChange={onChange} />
       )}
     </div>
   )

@@ -30,6 +30,7 @@ export const Import = () => {
       }
     }
   }
+
   return (
     <div className="import-view">
       <div className="import-title">Загрузить ваших персонажей</div>

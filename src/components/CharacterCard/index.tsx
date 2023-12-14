@@ -2,6 +2,9 @@ import { SkillName, SkillLevels, Parameters } from 'entities/Character'
 
 export * from './CharacterCard'
 
+/**
+ * Русские локализации для всех параметров
+ */
 export const ParametersLocalisations: Record<keyof Parameters, string> = {
   agility: 'Ловкость',
   charisma: 'Харизма',
@@ -12,6 +15,9 @@ export const ParametersLocalisations: Record<keyof Parameters, string> = {
   power: 'Сила',
 }
 
+/**
+ * Русские локализации для всех скиллов
+ */
 export const SKillNameLocalisations: Record<SkillName, string> = {
   appearance: 'Внешний вид',
   archery: 'Стрельба из лука',
@@ -25,6 +31,9 @@ export const SKillNameLocalisations: Record<SkillName, string> = {
   trainability: 'Обучаемость',
 }
 
+/**
+ * Русские локализации для всех уровней скиллов
+ */
 export const SKillLevelLocalisations: Record<keyof typeof SkillLevels, string> =
   {
     0: 'Нетренированный',

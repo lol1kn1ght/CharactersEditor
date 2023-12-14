@@ -9,6 +9,7 @@ export const Export = () => {
   const stringifiedData = JSON.stringify(data)
   const blob = new Blob([stringifiedData], { type: 'text/json' })
   const url = URL.createObjectURL(blob)
+
   return (
     <div className="export-view">
       <div className="export-title">Скачать ваших персонажей</div>

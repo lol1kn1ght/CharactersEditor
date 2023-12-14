@@ -10,6 +10,10 @@ export class Character implements ICharacter {
 
   id: string
 
+  /**
+   * Урон, полученный персонажем \
+   * Влияет на жизненную силу
+   */
   private _damage: number = 0
 
   get damage(): number {
@@ -36,11 +40,15 @@ export class Character implements ICharacter {
     if (typeof data === 'object') this.import(data)
     else if (typeof data === 'string') {
       this.name = data
-      this.id = this.generateId()
+      this.id = this._generateId()
       this.createdAt = new Date().getTime()
     }
   }
 
+  /**
+   * Рдеактирование базовых параметров персонажа
+   * @param parameters Объект с новыми значениями параметров
+   */
   editParameters(
     parameters: Partial<
       Pick<ICharacter, 'agility' | 'charisma' | 'intelligence' | 'power'>
@@ -56,22 +64,40 @@ export class Character implements ICharacter {
     return this
   }
 
+  /**
+   * Редактирование имени персонажа
+   * @param name Новое имя
+   */
   setName(name: string): this {
     this.name = name
 
     return this
   }
 
+  /**
+   * Нанести 1 единицу урона персонажу
+   */
   selfDamage(): this {
     ++this._damage
     return this
   }
 
+  /**
+   * Форматирование числа для исключения неприемлимых значений
+   * @param num Число
+   * @returns Отформатированное число
+   */
   private _format(num: number): number {
     if (num < 0 || isNaN(num)) return 0
     return num
   }
 
+  /**
+   * Улучшить конкретный навык \
+   * Уровень навыка ограничивается уровнем его базового параметра \
+   * Максимальный уровень навыка - 5
+   * @param name Название навыка
+   */
   upgrade(name: SkillName): this {
     const filteredSkill = this.skills.filter((skill) => skill.name === name)[0]
 
@@ -87,12 +113,20 @@ export class Character implements ICharacter {
     return this
   }
 
+  /**
+   * Получить информацию о конкретном навыке
+   * @param name Название навыка
+   */
   getSkill(name: SkillName): Skill | null {
     const skill = this.skills.filter((skill) => skill.name === name)[0]
 
     return skill
   }
 
+  /**
+   * Привести данные персонажа в пригодный для экспорта вариант
+   * @returns Данные персонажа в JSON формате
+   */
   toJSON(): ICharacter {
     const {
       agility,
@@ -124,6 +158,10 @@ export class Character implements ICharacter {
     }
   }
 
+  /**
+   * Наследовать характеристики от указанного персонажа
+   * @param data Данные персонажа
+   */
   import(data: ICharacter) {
     this.name = data.name
     this.agility = this._format(data.agility)
@@ -133,10 +171,14 @@ export class Character implements ICharacter {
     this.skills = data.skills
     this._damage = this._format(data.damage)
     this.createdAt = data.createdAt
-    this.id = data.id || this.generateId()
+    this.id = data.id || this._generateId()
   }
 
-  generateId(): string {
+  /**
+   * Сгенерировать рандомный айди для персонажа
+   * @returns Рандомный айди
+   */
+  private _generateId(): string {
     return Math.random().toString(16).slice(2).toString()
   }
 }

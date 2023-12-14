@@ -25,19 +25,17 @@ export const EditableCard = ({
       [field]: value,
     })
 
-    setData(() => data)
+    setData(data)
   }
 
   const damage = () => {
     data.selfDamage()
 
     alert(
-      `Вы ударили персонажа ${data.name}. Нажмите на кнопку "Сохранить" чтобы зафиксировать значения`
+      `Вы ударили персонажа "${data.name}". Нажмите на кнопку "Сохранить" чтобы зафиксировать значения`
     )
-  }
 
-  const getCallback = (field: keyof ICharacter) => {
-    return (newValue: string | number) => onChange(field, newValue)
+    setData(data)
   }
 
   const upgradeSkill = async (skillName: SkillName) => {
@@ -69,6 +67,10 @@ export const EditableCard = ({
         SKillLevelLocalisations[newValue.level]
       }". Нажмите кнопку "Сохранить" чтобы зафиксировать новые значения`
     )
+  }
+
+  const getCallback = (field: keyof ICharacter) => {
+    return (newValue: string | number) => onChange(field, newValue)
   }
 
   const fields: {
@@ -136,7 +138,7 @@ export const EditableCard = ({
               upgradeSkill(value as SkillName)
             }}
           >
-            <SelectOption>Выберите значение</SelectOption>
+            <SelectOption value="default">Выберите значение</SelectOption>
             {data.skills.map((skill) => (
               <SelectOption
                 disabled={skill.level === 5}

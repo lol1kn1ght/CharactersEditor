@@ -6,6 +6,10 @@ import {
 import { ICharacter, Skill } from 'entities/Character'
 import './CharacterCard.scss'
 
+/**
+ * Компонент карточки персонажа, показывающий информацию о нем
+ * @param character Класс или объект персонажа
+ */
 export const CharacterCard = ({ character }: { character: ICharacter }) => {
   const SkillTag = ({ skill }: { skill: Skill }) => {
     return (
@@ -18,7 +22,8 @@ export const CharacterCard = ({ character }: { character: ICharacter }) => {
     )
   }
 
-  //
+  // Массив, состоящий из двух других массивов
+  // 1 и 2 массивы - это 1 и 2 столбцы в поле навыков
   const characteristics: { name: string; value: number }[][] = [
     [
       {
@@ -55,6 +60,7 @@ export const CharacterCard = ({ character }: { character: ICharacter }) => {
   ]
 
   const Characteristics = () => {
+    // Отрисовка двух столбиков навыков
     return (
       <>
         {characteristics.map((characteristicsArray, index) => (
