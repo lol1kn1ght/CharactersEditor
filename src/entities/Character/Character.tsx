@@ -10,6 +10,8 @@ export class Character implements ICharacter {
 
   id: string
 
+  private _MAX_SKILL_LEVEL = 5
+
   /**
    * Урон, полученный персонажем \
    * Влияет на жизненную силу
@@ -60,6 +62,8 @@ export class Character implements ICharacter {
 
       this[key as keyof typeof parameters] = this._format(value!)
     }
+
+    this._recalculateSkills()
 
     return this
   }
@@ -166,5 +170,17 @@ export class Character implements ICharacter {
    */
   private _generateId(): string {
     return Math.random().toString(16).slice(2).toString()
+  }
+
+  private _recalculateSkills() {
+    this.skills.map((skill, index) => {
+      if (skill.level > this._MAX_SKILL_LEVEL)
+        skill.level = this._MAX_SKILL_LEVEL as Skill['level']
+
+      if (skill.level > this[skill.baseParameter])
+        skill.level = this[skill.baseParameter] as Skill['level']
+
+      this.skills[index] = skill
+    })
   }
 }
