@@ -15,9 +15,9 @@ export const InputNum = ({
 
   const _onChange = (type: 'plus' | 'minus') => {
     if (type === 'plus') {
-      _setValue((state) => state + 1)
+      _setValue((state) => (state + 1 < 0 ? 0 : state + 1))
     } else if (type === 'minus') {
-      _setValue((state) => state - 1)
+      _setValue((state) => (state - 1 < 0 ? 0 : state - 1))
     }
   }
 
