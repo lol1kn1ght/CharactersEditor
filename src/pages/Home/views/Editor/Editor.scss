@@ -9,8 +9,8 @@
       border: none;
       border-radius: 5px;
       padding: 10px;
-      color: #fafbfc;
-      background: #373535;
+      color: var(--colors-system-text);
+      background: var(--colors-secondary-focus);
       width: 100%;
       cursor: pointer;
       transition: all 0.3s;
@@ -19,7 +19,7 @@
 
       @media (hover: hover) {
         &:hover {
-          background: rgba(55, 53, 53, 0.7);
+          background: var(--colors-secondary-focus-hover);
         }
       }
     }

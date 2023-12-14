@@ -26,12 +26,12 @@
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
-    background: rgba(83, 80, 80, 1);
+    background: var(--colors-secondary-focus);
     transition: all 0.3s;
 
     @media (hover: hover) {
       &:hover {
-        background: rgba(83, 80, 80, 0.5);
+        background: var(--colors-secondary-focus-hover);
       }
     }
   }

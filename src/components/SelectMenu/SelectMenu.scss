@@ -7,11 +7,11 @@
   width: 100%;
   font-size: 1rem;
   padding: 0.5em 0.5em;
-  background-color: #2c2b2b;
-  border: 1px solid #caced1;
+  background-color: var(--colors-secondary-background);
+  border: 1px solid var(--colors-system-text);
   border-radius: 0.25rem;
-  color: #fafbfc;
-  border: #2c2b2b;
+  color: var(----colors-system-text);
+  border: var(--colors-secondary-background);
   cursor: pointer;
 
   &::before,

@@ -1,4 +1,21 @@
 :root {
+  --colors-system-text: rgb(250, 251, 252);
+  --colors-system-background: rgb(35, 35, 35);
+
   --colors-secondary-default: rgb(55, 53, 53);
-  --colors-secondary-hover: rgba(55, 53, 53, 1);
+  --colors-secondary-hover: rgba(55, 53, 53, 0.3);
+  --colors-secondary-text: rgb(112, 114, 116);
+
+  --colors-secondary-focus: rgb(68, 65, 65);
+  --colors-secondary-focus-hover: rgb(68, 65, 65, 0.5);
+  --colors-secondary-focus-opacity-80: rgba(68, 65, 65, 0.8);
+
+  --colors-secondary-background: rgb(44, 43, 43);
+  --colors-secondary-background-hover: rgba(44, 43, 43, 0.3);
+
+  --colors-error-default: rgba(236, 68, 73, 1);
+  --colors-error-hover: rgba(236, 68, 73, 0.7);
+
+  --colors-success-default: rgba(62, 165, 98, 1);
+  --colors-success-hover: rgba(62, 165, 98, 0.7);
 }

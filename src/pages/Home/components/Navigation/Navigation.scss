@@ -1,7 +1,7 @@
 ._navigation {
   max-width: 100%;
   padding: 10px;
-  background: #373535;
+  background: var(--colors-secondary-default);
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 
@@ -26,12 +26,12 @@
 
       @media (hover: hover) {
         &:hover {
-          background: rgba(83, 80, 80, 0.5);
+          background: var(--colors-secondary-focus-opacity-80);
         }
       }
 
       &.active {
-        background: rgba(83, 80, 80, 0.5);
+        background: var(--colors-secondary-focus-opacity-80);
       }
     }
   }

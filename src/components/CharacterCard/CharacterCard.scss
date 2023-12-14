@@ -6,7 +6,7 @@
   min-height: 300px;
   transition: all 0.3s;
   border-radius: 5px;
-  background: #373535;
+  background: var(--colors-secondary-default);
   gap: 15px;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@
           gap: 3px;
 
           .characteristic-name {
-            color: #707274;
+            color: var(--colors-secondary-text);
             &::after {
               content: ':';
             }
@@ -65,7 +65,7 @@
       .skill-tag {
         display: flex;
         flex-direction: row;
-        background: #2c2b2b;
+        background: var(--colors-secondary-background);
         border-radius: 5px;
         padding: 5px;
         gap: 5px;
@@ -76,7 +76,7 @@
         white-space: nowrap;
 
         .skill-name {
-          color: #707274;
+          color: var(--colors-secondary-text);
         }
 
         font-size: smaller;
@@ -88,12 +88,12 @@
     display: flex;
     gap: 10px;
     flex-direction: column;
-    background: #413e3e;
+    background: var(--colors-secondary-focus);
     padding: 0.5rem;
     border-radius: 5px;
 
     .info-title {
-      color: #fafbfc;
+      color: var(--colors-system-text);
       font-size: large;
     }
 

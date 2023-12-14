@@ -10,17 +10,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #232323;
+  background: var(--colors-system-background);
   width: 100%;
-  color: #fafbfc;
+  color: var(--colors-system-text);
 }
 
 a {
   text-decoration: none;
-  color: #fafbfc;
+  color: var(--colors-system-text);
 
   &:visited {
-    color: #fafbfc;
+    color: var(--colors-system-text);
   }
 }
 
